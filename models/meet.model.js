@@ -1,6 +1,12 @@
 import mongoose, { Schema } from "mongoose";
 
 const meetSchema = new Schema({
+  property_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Property",
+    required: true,
+  },
+
   date: {
     type: Date,
     required: true,

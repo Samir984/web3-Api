@@ -1,4 +1,5 @@
 import express from "express";
-const meetRouter = express.Router();
-
-export default meetRouter;
+// import { addMeeting } from "../controllers/meet.controller";
+const meetRoute = express.Router();
+// meetRoute.route("/addMeeting").get(addMeeting);
+export default meetRoute;

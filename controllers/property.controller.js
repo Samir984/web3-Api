@@ -44,3 +44,17 @@ export const uploadProperty = asyncHandler(async (req, res) => {
 
   return res.status(201).json(new AppResponse(proptery));
 });
+
+export const getproptery = asyncHandler(async (req, res) => {
+  const { _id, user_id } = req.query;
+  console.log(_id, user_id);
+  let property;
+  if (_id) {
+    property = await Property.findById(_id);
+  } else {
+    property = await Property.find({ user_id });
+  }
+  if (!property) throw new AppError(500, "getproptery error");
+
+  return res.status(200).json(new AppResponse(property));
+});
